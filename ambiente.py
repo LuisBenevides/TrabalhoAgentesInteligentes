@@ -51,8 +51,9 @@ class Ambiente:
             if self.matriz[agente.posicao] == "SUJO":
                 self.matriz[agente.posicao] = "LIMPO"
                 return "LIMPOU"
+            #ja que o agente não estará na mesma posição que um obstáculo, ele estará em uma posição já limpa
             else:
-                return "JA_LIMPO"     #ja que o agente não estará na mesma posição que um obstáculo
+                return "JA_LIMPO"     
         elif acao in ["CIMA", "BAIXO", "ESQUERDA", "DIREITA"]:
             dx, dy = {
                 "CIMA": (0, -1),
@@ -72,10 +73,6 @@ class Ambiente:
 
     def esta_limpo(self):
         return all(estado != "SUJO" for estado in self.matriz.values())
-
-
-
-
 
 
 
